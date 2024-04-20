@@ -8,9 +8,20 @@ const App = () => {
     const newTours = tours.filter((tour) => tour.id !== id);
     setTours(newTours);
   }
+
+  if (tours.length === 0) {
+    return (
+      <div className="refresh">
+        <div>No tours left</div>
+
+        <button onClick={() => setTours(data)}>Refresh</button>
+      </div>
+    );
+  }
+
   return (
     <div>
-      <h2 className="title">Plan Your Next Adventure!</h2>
+      <h2 className="title">Customized Tour Experiences Await!</h2>
       <Tours tours={tours} removeTour={removeTour} />
     </div>
   );
